@@ -1,0 +1,19 @@
+#wrapper {
+    overflow: hidden;
+}
+
+#title {
+    height: 42px;
+    text-align: center;
+    background-color: red;
+}
+
+#content {
+    background-color: blue;
+}
+
+#footer {
+    height: 184px;
+    background-color: pink;
+}
+
