@@ -12,15 +12,10 @@ $(window).resize(function() {
     console.log('resized ', window.innerHeight);
     $dom.wrapper.css('height', window.innerHeight);
 
-    var height;
-    if (OVERLAY_SHOWING) {
-        height = getContentHeight();
-    }
-    else {
-        height = window.innerHeight;
-    }
+    OVERLAY_SHOWING = true;
+    toggleOverlay(true);
 
-    $dom.content.css('height', height+'px');
+    $dom.content.css('height', getContentHeight()+'px');
 });
 
 
@@ -55,11 +50,11 @@ function toggleOverlay(show) {
     if (show) {
         var height = getContentHeight();
         // set animation of title
-        $dom.title.stop(true, false).slideDown(500);
+        $dom.title.stop(true, false).slideDown(300);
         // set animation of content
         $dom.content.stop(true, false).animate({
             height: height,
-        }, 500, keepOverlayInView);
+        }, 300, keepOverlayInView);
 
         OVERLAY_SHOWING = true;
 
@@ -69,16 +64,16 @@ function toggleOverlay(show) {
         // turn on the mouse enter for hiding overlay
         $dom.content.mouseenter(function(e) {
             // user have a 0.8 seconds delay before hiding overlay unless they clear it!
-            hide_overlay_delay = window.setTimeout(toggleOverlay.bind(null, false), 800);
+            hide_overlay_delay = window.setTimeout(toggleOverlay.bind(null, false), 600);
         });
     }
     else {
         // set animation of title
-        $dom.title.stop(true, false).slideUp(500);
+        $dom.title.stop(true, false).slideUp(300);
         // set animation of content
         $dom.content.stop(true, false).animate({
             height: window.innerHeight,
-        }, 500);
+        }, 300);
 
         OVERLAY_SHOWING = false;
 
