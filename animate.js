@@ -1,3 +1,4 @@
+
 'use strict';
 // get $DOM elements
 var $dom = {
@@ -50,7 +51,9 @@ function toggleOverlay(show) {
     if (show) {
         var height = getContentHeight();
         // set animation of title
-        $dom.title.stop(true, false).slideDown(300);
+        $dom.title.stop(true, false).animate({
+            marginTop: 0,
+        }, 300);
         // set animation of content
         $dom.content.stop(true, false).animate({
             height: height,
@@ -69,7 +72,9 @@ function toggleOverlay(show) {
     }
     else {
         // set animation of title
-        $dom.title.stop(true, false).slideUp(300);
+        $dom.title.stop(true, false).animate({
+            marginTop: -TITLE_HEIGHT,
+        }, 300);
         // set animation of content
         $dom.content.stop(true, false).animate({
             height: window.innerHeight,
@@ -101,6 +106,7 @@ function keepOverlayInView() {
         window.clearTimeout(hide_overlay_delay);
     });
 }
+
 
 $(function() {
     $(window).trigger('resize');

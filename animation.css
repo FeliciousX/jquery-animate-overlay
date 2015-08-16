@@ -1,19 +1,22 @@
+body {
+    text-align: center;
+}
+
 #wrapper {
     overflow: hidden;
 }
 
 #title {
     height: 42px;
-    text-align: center;
-    background-color: red;
+    background-color: #636363;
 }
 
 #content {
-    background-color: blue;
+    background-color: #dcdcdc;
 }
 
 #footer {
     height: 184px;
-    background-color: pink;
+    background-color: #5e5e5e;
 }
 
