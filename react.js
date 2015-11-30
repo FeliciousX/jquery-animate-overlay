@@ -35,6 +35,9 @@ hideOverlayStream.subscribe( function(hide) {
     if (hide) hideOverlay();
 });
 
+var windowResizeStream = Rx.Observable.fromEvent( $(window), 'resize' );
+windowResizeStream.subscribe( resizeWrapper );
+
 function getContentHeight() {
     return window.innerHeight - TITLE_HEIGHT - FOOTER_HEIGHT;
 }
@@ -59,8 +62,11 @@ function hideOverlay() {
     }, 300);
 }
 
-$(function() {
+function resizeWrapper() {
     $('#wrapper').css('height', window.innerHeight);
     $content.css('height', getContentHeight()+'px');
-});
+    showOverlay();
+}
+
+$(resizeWrapper);
 
