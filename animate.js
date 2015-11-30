@@ -15,12 +15,9 @@ $(window).resize(function() {
     $content.css('height', getContentHeight()+'px');
 });
 
-
 var TITLE_HEIGHT = $title.height();
 var FOOTER_HEIGHT = $footer.height();
-
 var OVERLAY_SHOWING = true;
-
 var hide_overlay_delay = null;
 
 function getContentHeight() {
@@ -77,3 +74,4 @@ $(function() {
     $(window).trigger('resize');
     window.setTimeout(toggleOverlay.bind(null, false), 1500);
 });
+
